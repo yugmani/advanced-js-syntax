@@ -61,7 +61,7 @@ greeting(undefined); //Hello unknown !
 // ?? - Returns the value of the second if the first operand is nullish
 
 // || - Still returns the first value if it is truthy ( 0 or empty string).
-// /*
+
 function myGreet(name) {
   console.log(`Hello ${name || 'unknown'} !`);
 }
@@ -71,5 +71,78 @@ myGreet("");  //Hello unknown !
 myGreet();  //Hello unknown !
 myGreet(null);  //Hello unknown !
 myGreet(undefined);   //Hello unknown !
-// */
+
+// 2. Nullish Coalescing Assignment Operator(??=)
+// *************************************
+
+//The nullish coalescing assignment operator (??=) is a shorthand version of the nullish coalescing operator (??) that allows you to check if a variable is nullish before assigning a value to it.
+
+// a. Before giving a variable a value, you can use this to see if it is null or undefined. 
+// b. The variable will be assigned if it is null or undefined; else, its current value will be retained.
+
+// Setting a default value for a variable like the one below is an effective way of using this operator:
+let myAge;  //undefined
+myAge ??= 25;
+
+console.log("Age: ", myAge);  //25
+
+let myName = "Siddhi";  //not null or undefined
+myName ??= 'unknown';
+
+console.log("Name: ", myName);  //Siddhi
+
+
+// 3. Logical OR Assignment Operator
+// *************************************
+
+//  logical operator accepts two operands and only assigns the right operand to the left operand if the left operand is falsy, otherwise it retains the value of the left operand.
+
+let x, y; 
+x ||= y;
+
+//In the syntax (x ||= y), the logical OR assignment operator only assigns y to x if x is falsy.
+
+/*
+If you are confused at what a falsy value is, it is nothing but a value that is considered false when encountered in a Boolean context. A falsy (also written as falsey) can be either of the following:
+
+1. false (the Boolean keyword false)
+2. 0 (the Number positive zero)
+3. -0 (the Number negative zero)
+4. 0n (the BigInt zero, also 0x0n)
+6. “”, ‘’, `` (an empty string value)
+7. null (a data type — the absence of any value)
+8. undefined (a data type)
+9. NaN (not a number)
+10. document.all
+*/
+
+let title;
+
+title ||= 'untitled';
+console.log("Title: ", title);  //untitled
+
+let title1 = '';
+
+title1 ||= 'untitled';
+console.log("Title1: ", title1);  //untitled
+
+let title2 = 'I love JavaScript';
+title2 ||= 'untitled';
+
+console.log("Title 2: ", title2); //I love JavaScript
+
+let title3 = null;
+
+title3 ||= 'untitled';
+console.log("Title3: ", title3);  //untitled
+
+let title4 = undefined;
+
+title4 ||= 'untitled';
+console.log("Title4: ", title4);  //untitled
+
+let title5 = false;
+
+title5 ||= 'untitled';
+console.log("Title5: ", title5);  //untitled
 
